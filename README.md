@@ -2,7 +2,7 @@
 # Atividade Prática — Capítulo 9: Subprogramas
 
 **Disciplina:** Linguagens de Programação  
-**Nome:** [Léo Bernardo da Silva Santos]  
+**Nome:** Léo Bernardo da Silva Santos
 
 ## Descrição das Tarefas
 
