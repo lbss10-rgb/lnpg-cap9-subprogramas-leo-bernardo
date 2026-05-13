@@ -1,0 +1,30 @@
+**TAREFA 4 — Objetos e Referência em Java**
+class Produto {
+    String nome;
+    double preco;
+
+    Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+}
+
+public class PassagemReferenciaObjeto {
+    public static void aplicarDesconto(Produto p) {
+        System.out.println("Dentro do método - preço antes: " + p.preco);
+        p.preco = p.preco * 0.9;  // 10% de desconto
+        System.out.println("Dentro do método - preço depois: " + p.preco);
+    }
+
+    public static void main(String[] args) {
+        Produto prod = new Produto("Notebook", 3000.0);
+        System.out.println("Antes da chamada: " + prod.preco);
+        aplicarDesconto(prod);
+        System.out.println("Depois da chamada: " + prod.preco);
+    }
+}
+**Java sempre usa passagem por valor.**
+
+**O que é copiado: o valor da referência (endereço do objeto).**
+
+**Por isso as alterações no objeto são visíveis fora do método.**
