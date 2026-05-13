@@ -1,1 +1,94 @@
+**TAREFA 1** — Modularização em Java
+**Versão Monolítica**
+import java.util.Scanner;
 
+public class ControleAcademicoMonolitico {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] nomes = new String[5];
+        double[][] notas = new double[5][3];
+        double[] medias = new double[5];
+        String[] situacoes = new String[5];
+
+        // Leitura
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Nome do aluno " + (i+1) + ": ");
+            nomes[i] = sc.nextLine();
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Nota " + (j+1) + ": ");
+                notas[i][j] = sc.nextDouble();
+            }
+            sc.nextLine(); // limpar buffer
+        }
+
+        // Cálculo
+        for (int i = 0; i < 5; i++) {
+            medias[i] = (notas[i][0] + notas[i][1] + notas[i][2]) / 3;
+            if (medias[i] >= 7.0) situacoes[i] = "APROVADO";
+            else if (medias[i] >= 5.0) situacoes[i] = "RECUPERAÇÃO";
+            else situacoes[i] = "REPROVADO";
+        }
+
+        // Relatório
+        System.out.println("\n=== RELATÓRIO FINAL ===");
+        for (int i = 0; i < 5; i++) {
+            System.out.printf("%s - Média: %.2f - %s%n", nomes[i], medias[i], situacoes[i]);
+        }
+    }
+}
+
+**Versão Modularizada**
+import java.util.Scanner;
+
+public class ControleAcademico {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] nomes = new String[5];
+        double[][] notas = new double[5][3];
+        double[] medias = new double[5];
+        String[] situacoes = new String[5];
+
+        for (int i = 0; i < 5; i++) {
+            nomes[i] = lerNome(sc, i+1);
+            notas[i] = lerNotas(sc, nomes[i]);
+            medias[i] = calcularMedia(notas[i]);
+            situacoes[i] = determinarSituacao(medias[i]);
+        }
+
+        imprimirRelatorio(nomes, medias, situacoes);
+        sc.close();
+    }
+
+    public static String lerNome(Scanner sc, int num) {
+        System.out.print("Nome do aluno " + num + ": ");
+        return sc.nextLine();
+    }
+
+    public static double[] lerNotas(Scanner sc, String nome) {
+        double[] notas = new double[3];
+        System.out.println("Notas de " + nome + ":");
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Nota " + (i+1) + ": ");
+            notas[i] = sc.nextDouble();
+        }
+        sc.nextLine(); // limpar buffer
+        return notas;
+    }
+
+    public static double calcularMedia(double[] notas) {
+        return (notas[0] + notas[1] + notas[2]) / 3.0;
+    }
+
+    public static String determinarSituacao(double media) {
+        if (media >= 7.0) return "APROVADO";
+        else if (media >= 5.0) return "RECUPERAÇÃO";
+        else return "REPROVADO";
+    }
+
+    public static void imprimirRelatorio(String[] nomes, double[] medias, String[] situacoes) {
+        System.out.println("\n=== RELATÓRIO FINAL ===");
+        for (int i = 0; i < nomes.length; i++) {
+            System.out.printf("%-20s Média: %.2f - %s%n", nomes[i], medias[i], situacoes[i]);
+        }
+    }
+}
