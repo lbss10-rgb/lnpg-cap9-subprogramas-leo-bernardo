@@ -1,0 +1,16 @@
+**TAREFA 3 — Passagem por Valor em Java**
+public class PassagemPorValor {
+    public static void alterarNumero(int x) {
+        System.out.println("Dentro do método - antes: " + x);
+        x = x * 10;
+        System.out.println("Dentro do método - depois: " + x);
+    }
+
+    public static void main(String[] args) {
+        int numero = 5;
+        System.out.println("Antes da chamada: " + numero);
+        alterarNumero(numero);
+        System.out.println("Depois da chamada: " + numero);
+    }
+}
+
