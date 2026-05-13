@@ -59,17 +59,17 @@ Coesão: Cada subprograma possui alta coesão, realizando apenas uma tarefa bem 
 
 Principais Conceitos Aplicados
 
-Modularização e Separação de Responsabilidades
-Passagem de Parâmetros (por valor e por referência de objeto)
-Retorno de valores
-Reutilização de código
-Boas práticas de coesão e legibilidade
+.Modularização e Separação de Responsabilidades
+.Passagem de Parâmetros (por valor e por referência de objeto)
+.Retorno de valores
+.Reutilização de código
+.Boas práticas de coesão e legibilidade
 
 Dificuldades Encontradas
 
-Gerenciar o buffer do Scanner ao alternar entre nextDouble() e nextLine().
-Entender que Java passa sempre por valor, mas no caso de objetos é copiado o valor da referência.
-Identificar quais partes do código eram boas candidatas a virarem subprogramas.
+.Gerenciar o buffer do Scanner ao alternar entre nextDouble() e nextLine().
+.Entender que Java passa sempre por valor, mas no caso de objetos é copiado o valor da referência.
+.Identificar quais partes do código eram boas candidatas a virarem subprogramas.
 
 Vantagens Percebidias
 
@@ -118,4 +118,25 @@ flowchart TD
     C --> A
     D --> A
     E --> A
+
+Observações sobre a Modularização
+
+Legibilidade: Métodos curtos com nomes claros revelam a intenção do código.
+Reutilização: Funções como calcularMedia(), calcularDesconto() e imprimirRelatorio() podem ser reutilizadas facilmente.
+Manutenção: Alterações são feitas em um único local.
+Clareza do Fluxo: O main() atua apenas como orquestrador.
+Coesão: Cada subprograma possui uma única responsabilidade bem definida.
+
+Dificuldades Encontradas
+
+.Controle do buffer do Scanner no Java
+.Compreensão profunda de que Java sempre usa passagem por valor (mesmo com objetos)
+.Decidir o melhor nível de granularidade dos métodos
+
+Vantagens Percebias da Modularização
+
+.Código mais organizado e profissional
+.Fácil depuração e teste individual de métodos
+.Maior legibilidade e facilidade de manutenção
+.Preparação para projetos maiores.
 
