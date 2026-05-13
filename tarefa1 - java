@@ -92,3 +92,5 @@ public class ControleAcademico {
         }
     }
 }
+
+**Separei responsabilidades claras (coesão alta), evitei repetição de código, melhorei legibilidade e facilitei manutenção.**
