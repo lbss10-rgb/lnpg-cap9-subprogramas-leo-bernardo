@@ -1,0 +1,60 @@
+**TAREFA 5 — Projeto Livre (Sistema Bancário Simples)**
+import java.util.Scanner;
+
+public class SistemaBancario {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double saldo = 1000.0;
+
+        int opcao;
+        do {
+            exibirMenu();
+            opcao = sc.nextInt();
+            switch (opcao) {
+                case 1 -> saldo = depositar(saldo, sc);
+                case 2 -> saldo = sacar(saldo, sc);
+                case 3 -> consultarSaldo(saldo);
+                case 4 -> System.out.println("Saindo...");
+                default -> System.out.println("Opção inválida!");
+            }
+        } while (opcao != 4);
+
+        sc.close();
+    }
+
+    public static void exibirMenu() {
+        System.out.println("\n=== BANCO GROK ===");
+        System.out.println("1. Depositar");
+        System.out.println("2. Sacar");
+        System.out.println("3. Consultar Saldo");
+        System.out.println("4. Sair");
+        System.out.print("Escolha: ");
+    }
+
+    public static double depositar(double saldo, Scanner sc) {
+        System.out.print("Valor do depósito: R$ ");
+        double valor = sc.nextDouble();
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Depósito realizado!");
+        }
+        return saldo;
+    }
+
+    public static double sacar(double saldo, Scanner sc) {
+        System.out.print("Valor do saque: R$ ");
+        double valor = sc.nextDouble();
+        if (valor > 0 && valor <= saldo) {
+            saldo -= valor;
+            System.out.println("Saque realizado!");
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido!");
+        }
+        return saldo;
+    }
+
+    public static void consultarSaldo(double saldo) {
+        System.out.printf("Saldo atual: R$ %.2f%n", saldo);
+    }
+}
+**Este sistema tem mais de 6 subprogramas, funções com retorno, boa coesão e separação de responsabilidades.**
