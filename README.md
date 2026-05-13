@@ -41,14 +41,6 @@ javac SistemaBancario.java && java SistemaBancario
 python sistema_vendas.py
 ```
 
-
-
-Legibilidade: O código modularizado fica muito mais fácil de ler e entender, pois cada método tem um nome claro que revela sua intenção.
-Reutilização: Funções como calcularMedia(), calcularDesconto() e imprimirRelatorio() podem ser facilmente reutilizadas em outros sistemas.
-Facilidade de Manutenção: Alterar a lógica de aprovação ou a regra de desconto exige mudança em apenas um lugar.
-Clareza do Fluxo: O main() fica curto e atua como orquestrador das chamadas.
-Coesão: Cada subprograma possui alta coesão, realizando apenas uma tarefa bem definida.
-
 Observações sobre a Modularização
 
 Legibilidade: O código modularizado fica muito mais fácil de ler e entender, pois cada método tem um nome claro que revela sua intenção.
@@ -71,7 +63,9 @@ Principais Conceitos Aplicados
 Dificuldades Encontradas
 
 .Gerenciar o buffer do Scanner ao alternar entre nextDouble() e nextLine().
+
 .Entender que Java passa sempre por valor, mas no caso de objetos é copiado o valor da referência.
+
 .Identificar quais partes do código eram boas candidatas a virarem subprogramas.
 
 Vantagens Percebidias
