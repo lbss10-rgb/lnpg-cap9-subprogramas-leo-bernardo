@@ -57,4 +57,3 @@ public class SistemaBancario {
         System.out.printf("Saldo atual: R$ %.2f%n", saldo);
     }
 }
-**Este sistema tem mais de 6 subprogramas, funções com retorno, boa coesão e separação de responsabilidades.**
